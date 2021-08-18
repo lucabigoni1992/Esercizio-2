@@ -1,0 +1,66 @@
+﻿@{
+	ViewData["Title"] = "Conta parole con Basic Autch";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container">
+	<div class="row" id="UserControl">
+		<div class="col">
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="text" class="form-control" id="InputUsername" name="InputUsername"placeholder="Username">
+			</div>
+
+		</div>
+		<div class="col">
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" class="form-control" id="InputPassword" name="InputPassword" placeholder="Password">
+			</div>
+
+		</div>
+	</div>
+	<div class="row">
+		<form action="/api/Text/BasicAuth/UploadText"
+			  enctype="multipart/form-data" onsubmit="AJAXSubmitText(this,UserControl);return false;"
+			  method="post">
+			<div class="col-sm">
+				<dl>
+					<dt>
+						<label for="FileUpload_FormFile">Seleziona uno o più file</label>
+					</dt>
+					<dd>
+						<textarea class="form-control" id="Text" name="text"
+								  placeholder="Type in your message" rows="5"></textarea>
+					</dd>
+				</dl>
+				<input class="btn" type="submit" value="Upload" />
+
+				<div style="margin-top:15px">
+					<output name="result"></output>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<form action="/api/Text/BasicAuth/UploadFiles"
+			  enctype="multipart/form-data" onsubmit="AJAXSubmitFile(this,UserControl);return false;"
+			  method="post">
+			<div class="col-sm">
+				<dl>
+					<dt>
+						<label for="FileUpload_FormFile">Seleziona uno o più file</label>
+					</dt>
+					<dd>
+						<input id="Files" type="file" multiple name="files" accept="text/*" />
+					</dd>
+				</dl>
+				<input class="btn" type="submit" value="Upload" />
+
+				<div style="margin-top:15px">
+					<output name="result"></output>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

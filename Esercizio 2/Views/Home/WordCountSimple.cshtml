@@ -1,0 +1,47 @@
+﻿
+
+@{
+	ViewData["Title"] = "Conta parole senza Basic Autch";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="container">
+	<div class="row">
+		<form action="/api/Text/UploadText"
+			  enctype="multipart/form-data" onsubmit="AJAXSubmitText(this);return false;"
+			  method="post">
+			<dl>
+				<dt>
+					<label for="FileUpload_FormFile">Seleziona uno o più file</label>
+				</dt>
+				<dd>
+					<textarea class="form-control" id="Text" name="text"
+							  placeholder="Type in your message" rows="5"></textarea>
+				</dd>
+			</dl>
+			<input class="btn" type="submit" value="Upload" />
+
+			<div style="margin-top:15px">
+				<output name="result"></output>
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<form action="/api/Text/UploadFiles"
+			  enctype="multipart/form-data" onsubmit="AJAXSubmitFile(this);return false;"
+			  method="post">
+			<dl>
+				<dt>
+					<label for="FileUpload_FormFile">Seleziona uno o più file</label>
+				</dt>
+				<dd>
+					<input id="Files" type="file" multiple name="files"  accept="text/*"/>
+				</dd>
+			</dl>
+			<input class="btn" type="submit" value="Upload" />
+
+			<div style="margin-top:15px">
+				<output name="result"></output>
+			</div>
+		</form>
+	</div>
+</div>
